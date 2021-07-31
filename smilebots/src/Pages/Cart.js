@@ -36,7 +36,7 @@ function Cart() {
           align="center"
           style={{ marginTop: "20px", fontWeight: "bold", fontSize: "50px" }}
         >
-          Cart ({totalUniqueItems}) Total Items: ({totalItems})
+          Cart Items ({totalUniqueItems}) Total Items: ({totalItems})
         </Typography>
       </div>
       <div>

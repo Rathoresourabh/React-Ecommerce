@@ -148,7 +148,7 @@ export default function PrimarySearchAppBar() {
             history.push("/cart");
           }}
         >
-          <Badge badgeContent={totalItems} style={{color:"orange"}}>
+          <Badge badgeContent={totalItems} style={{ color: "orange" }}>
             <ShoppingCartIcon style={{ color: "darkorange" }} />
           </Badge>
         </IconButton>
@@ -246,7 +246,9 @@ export default function PrimarySearchAppBar() {
                 history.push("/cart");
               }}
             >
-              <ShoppingCartIcon style={{ color: "orange" }} />
+              <Badge badgeContent={totalItems} style={{ color: "orange" }}>
+                <ShoppingCartIcon style={{ color: "darkorange" }} />
+              </Badge>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

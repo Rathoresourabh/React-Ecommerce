@@ -14,7 +14,8 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CloseIcon from "@material-ui/icons/Close";
 import { useHistory } from "react-router-dom";
-import MuiAlert from "@material-ui/lab/Alert";
+import swal from "sweetalert";
+import { CartProvider, useCart } from "react-use-cart";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,13 +47,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
   },
 }));
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 export default function CourseCard({ items }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const { addItem } = useCart();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -67,6 +66,12 @@ export default function CourseCard({ items }) {
       : [];
     cartItems.push(items);
     localStorage.setItem("productData", JSON.stringify(cartItems));
+    swal({
+      title: "",
+      text: "Item Added To Cart",
+      icon: "success",
+    });
+    addItem(items);
   }
   let history = useHistory();
   return (

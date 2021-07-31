@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 
-function Order() {
+function Product() {
   return (
     <div>
       <div className="main">
@@ -11,4 +11,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default Product;

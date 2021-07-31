@@ -1,5 +1,5 @@
 [
-    {
+    { "id": "1",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -10,9 +10,10 @@
       "discount": "50%",
       "imageURL": "https://rukminim1.flixcart.com/image/416/416/k5lcvbk0/pop-up-toaster/2/j/w/euroline-820-pop-up-810-pop-up-original-imafz8h3duveqgh7.jpeg?q=70",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true ,
+      "quantity": "5"
     },
-    {
+    { "id": "2",
       "name": "Morphy Richards 25 L Convection Microwave Oven  (MWO 25CG, Steel)",
       "productId": "EURO19938202",
       "brandName": "Morphy",
@@ -24,8 +25,10 @@
       "imageURL": "https://rukminim1.flixcart.com/image/416/416/microwave-new/v/q/y/morphy-richard-25cg-original-imaec2ddymudmze3.jpeg?q=70",
       "sellerName": "Kwitch Retails",
       "isNewProduct": false
+      ,
+      "quantity": "10"
     },
-    {
+    {"id": "3",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -36,9 +39,10 @@
       "discount": "50%",
       "imageURL": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/hoodies-1-1612904426.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "10"
     },
-    {
+    {"id": "4",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -49,9 +53,10 @@
       "discount": "50%",
       "imageURL": "https://m.media-amazon.com/images/I/51raLxaj9VL._AC_UX385_.jpg",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "10"
     },
-    {
+    {"id": "5",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -62,9 +67,10 @@
       "discount": "50%",
       "imageURL": "https://image.shutterstock.com/image-photo/blue-baseball-cap-four-different-260nw-1447895666.jpg",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "10"
     },
-    {
+    {"id": "6",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -75,9 +81,10 @@
       "discount": "50%",
       "imageURL": "https://m.media-amazon.com/images/I/51raLxaj9VL._AC_UX385_.jpg",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "10"
     },
-    {
+    {"id": "7",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -88,9 +95,10 @@
       "discount": "50%",
       "imageURL": "https://m.media-amazon.com/images/I/51raLxaj9VL._AC_UX385_.jpg",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "10"
     },
-    {
+    {"id": "8",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -101,9 +109,10 @@
       "discount": "50%",
       "imageURL": "https://rukminim1.flixcart.com/image/416/416/k5lcvbk0/pop-up-toaster/2/j/w/euroline-820-pop-up-810-pop-up-original-imafz8h3duveqgh7.jpeg?q=70",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "10"
     },
-    {
+    {"id": "9",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -114,9 +123,10 @@
       "discount": "50%",
       "imageURL": "https://image.shutterstock.com/image-photo/blue-baseball-cap-four-different-260nw-1447895666.jpg",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "5"
     },
-    {
+    {"id": "10",
       "name": "EUROLINE 810 POP UP 700 W Pop Up Toaster  (White)",
       "productId": "EURO19938201",
       "brandName": "EUROLINE",
@@ -127,7 +137,8 @@
       "discount": "50%",
       "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa-K6Lis9yS0m0EnC0eFHrNsSOpA0liSNl-w&usqp=CAU",
       "sellerName": "telform inc.",
-      "isNewProduct": true
+      "isNewProduct": true,
+      "quantity": "5"
     }
     
 

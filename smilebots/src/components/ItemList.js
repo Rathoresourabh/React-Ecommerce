@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { CartProvider, useCart } from "react-use-cart";
 
 const useStyles = makeStyles({
   root: {
@@ -28,8 +29,15 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ItemList({ items }) {
+export default function ItemList({ item }) {
   const classes = useStyles();
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+  } = useCart();
 
   return (
     <div>
@@ -40,21 +48,24 @@ export default function ItemList({ items }) {
             color="textSecondary"
             gutterBottom
           >
-            {items.name} | {items.brandName}
+            {item.name} | {item.brandName}
           </Typography>
           <Typography variant="h5" component="h2">
-            PRICE: ${items.price}
+            PRICE: ${item.price}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            Brand: {items.brandName}
+            Brand: {item.brandName}
           </Typography>
-          <img src={items.imageURL} alt={items.productId} />
+          <img src={item.imageURL} alt={item.productId} />
+          <Typography variant="h5" component="h2">
+            Quantity: {item.quantity}
+          </Typography>
         </CardContent>
         <CardActions>
-          <IconButton aria-label="add" className={classes.button}>
+          <IconButton aria-label="add" className={classes.button} onClick = {()=> updateItemQuantity(item.id, item.quantity +1)}>
             <AddIcon fontSize="small" />
           </IconButton>
-          <IconButton aria-label="delete" className={classes.button}>
+          <IconButton aria-label="delete" className={classes.button} onClick= {()=> updateItemQuantity(item.id , item.quantity-1)}>
             <DeleteIcon fontSize="small" />
           </IconButton>
         </CardActions>

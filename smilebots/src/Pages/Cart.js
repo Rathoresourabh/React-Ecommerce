@@ -7,14 +7,24 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { CartProvider, useCart } from "react-use-cart";
 
 function Cart() {
-  let items = localStorage.getItem("productData")
+  let item = localStorage.getItem("productData")
     ? JSON.parse(localStorage.getItem("productData"))
     : [];
-  const [data, setData] = useState(items);
+  const [data, setData] = useState(item);
   const [open, setOpen] = React.useState(false);
-
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    removeItem,
+    totalItems,
+    cartTotal,
+    emptyCart,
+  } = useCart();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -22,6 +32,7 @@ function Cart() {
   const handleClose = () => {
     setOpen(false);
   };
+  if(isEmpty) return <Typography align="center">Your Cart is Empty</Typography>
   return (
     <div>
       <div>
@@ -29,13 +40,13 @@ function Cart() {
           align="center"
           style={{ marginTop: "20px", fontWeight: "bold", fontSize: "50px" }}
         >
-          Shopping Cart Summary
+          Cart ({totalUniqueItems}) Total Items: ({totalItems})
         </Typography>
       </div>
       <div>
         {data &&
-          data.map(function (items, index) {
-            return <ItemList items={items} key={index} />;
+          data.map(function (item, index) {
+            return <ItemList item={item} key={index} />;
           })}
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -45,6 +56,12 @@ function Cart() {
         >
           Place Order
         </Button>
+        <Typography
+          align="center"
+          style={{ marginTop: "20px", fontWeight: "bold", fontSize: "50px" }}
+        >
+          Total Price: {cartTotal}
+        </Typography>
       </div>
       <Dialog
         open={open}
@@ -103,7 +120,7 @@ function Cart() {
             onClick={handleClose}
             style={{ color: "white", backgroundColor: "orange" }}
           >
-            Buy Now
+            Buy Now 
           </Button>
         </DialogActions>
       </Dialog>

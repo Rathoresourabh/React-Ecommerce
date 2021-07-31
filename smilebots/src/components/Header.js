@@ -10,9 +10,10 @@ import Menu from "@material-ui/core/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { CartProvider, useCart } from "react-use-cart";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -116,7 +117,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
-
+  const { totalItems } = useCart();
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
@@ -140,8 +141,14 @@ export default function PrimarySearchAppBar() {
         <p>Profile</p>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+        <IconButton
+          aria-label="show 11 new notifications"
+          color="inherit"
+          onClick={() => {
+            history.push("/cart");
+          }}
+        >
+          <Badge badgeContent={totalItems} style={{color:"orange"}}>
             <ShoppingCartIcon style={{ color: "darkorange" }} />
           </Badge>
         </IconButton>
@@ -151,6 +158,7 @@ export default function PrimarySearchAppBar() {
   );
 
   let history = useHistory();
+
   return (
     <div className={classes.grow}>
       <AppBar
@@ -234,7 +242,9 @@ export default function PrimarySearchAppBar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               color="inherit"
-              onClick = {()=> {history.push('/cart')}}
+              onClick={() => {
+                history.push("/cart");
+              }}
             >
               <ShoppingCartIcon style={{ color: "orange" }} />
             </IconButton>

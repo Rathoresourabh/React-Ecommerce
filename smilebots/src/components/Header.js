@@ -234,6 +234,7 @@ export default function PrimarySearchAppBar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               color="inherit"
+              onClick = {()=> {history.push('/cart')}}
             >
               <ShoppingCartIcon style={{ color: "orange" }} />
             </IconButton>

@@ -15,6 +15,7 @@ function Home() {
           paddingTop: "50px",
           display: "flex",
           flexWrap: "wrap",
+          justifyContent: "space-evenly"
         }}
       >
         {data.map(function (items, index) {

@@ -1,53 +1,64 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import AddIcon from "@material-ui/icons/Add";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    width: "70%",
+    margin: "50px 0px",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
+
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
   },
+  button: {
+    color: "white",
+    backgroundColor: "orange",
+  },
 });
 
-export default function ItemList({items}) {
+export default function ItemList({ items }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {items.name} | {items.brandName}
-        </Typography>
-        <Typography variant="h5" component="h2">
-         {items.price}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <div>
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            {items.name} | {items.brandName}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            PRICE: ${items.price}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            Brand: {items.brandName}
+          </Typography>
+          <img src={items.imageURL} alt={items.productId} />
+        </CardContent>
+        <CardActions>
+          <IconButton aria-label="add" className={classes.button}>
+            <AddIcon fontSize="small" />
+          </IconButton>
+          <IconButton aria-label="delete" className={classes.button}>
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </div>
   );
 }

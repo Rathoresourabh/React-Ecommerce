@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
-import { CardActions, Divider, IconButton } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -16,11 +14,12 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CloseIcon from "@material-ui/icons/Close";
 import { useHistory } from "react-router-dom";
-import Data from "../components/data/product_lists.json"
+import MuiAlert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 380,
+    width: "100%",
     margin: "10px",
     minWidth: "300px",
   },
@@ -47,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
   },
 }));
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 export default function CourseCard({ items }) {
   const classes = useStyles();
@@ -59,6 +61,13 @@ export default function CourseCard({ items }) {
   const handleClose = () => {
     setOpen(false);
   };
+  function AddItem() {
+    var cartItems = localStorage.getItem("productData")
+      ? JSON.parse(localStorage.getItem("productData"))
+      : [];
+    cartItems.push(items);
+    localStorage.setItem("productData", JSON.stringify(cartItems));
+  }
   let history = useHistory();
   return (
     <Card className={classes.root}>
@@ -66,7 +75,6 @@ export default function CourseCard({ items }) {
         className={classes.media}
         image={items.imageURL}
         title={items.brandName}
-        onClick={handleClickOpen}
         aria-labelledby="form-dialog-title"
         id="form-dialog-title"
       />
@@ -120,16 +128,23 @@ export default function CourseCard({ items }) {
         </DialogContentText>
 
         <DialogActions className={classes.customAction}>
-          <Button style={{ color: "white", backgroundColor: "orange" }} onClick={()=> { 
-              localStorage.setItem("productData" , Data)
-
-          }}>
+          <Button
+            style={{ color: "white", backgroundColor: "orange" }}
+            onClick={AddItem}
+          >
             🛒 Add To Cart
           </Button>
-          <Button style={{ color: "white", backgroundColor: "orange" }} onClick={()=> { 
-              history.push('/cart')
-              
-          }}>
+          {/* <Snackbar open={open} autoHideDuration={3000}>
+            <Alert onClose={handleClose} severity="success">
+              Your Item Has Been Added!
+            </Alert>
+          </Snackbar> */}
+          <Button
+            style={{ color: "white", backgroundColor: "orange" }}
+            onClick={() => {
+              history.push("/cart");
+            }}
+          >
             🛒 Go To Cart
           </Button>
         </DialogActions>
@@ -139,16 +154,29 @@ export default function CourseCard({ items }) {
         <Typography variant="body2" color="textSecondary" component="p">
           {items.Description}
         </Typography>
-        <Divider />
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-          align="center"
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
         >
-          {items.price}
-        </Typography>
-        <Divider />
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            align="center"
+          >
+            $ {items.price}
+          </Typography>{" "}
+          <Button
+            style={{ color: "white", backgroundColor: "orange" }}
+            onClick={handleClickOpen}
+          >
+            {" "}
+            View Details
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

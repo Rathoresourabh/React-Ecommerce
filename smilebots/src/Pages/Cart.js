@@ -10,10 +10,6 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { CartProvider, useCart } from "react-use-cart";
 
 function Cart() {
-  let item = localStorage.getItem("productData")
-    ? JSON.parse(localStorage.getItem("productData"))
-    : [];
-  const [data, setData] = useState(item);
   const [open, setOpen] = React.useState(false);
   const {
     isEmpty,
@@ -44,8 +40,8 @@ function Cart() {
         </Typography>
       </div>
       <div>
-        {data &&
-          data.map(function (item, index) {
+        {items &&
+          items.map(function (item, index) {
             return <ItemList item={item} key={index} />;
           })}
       </div>
